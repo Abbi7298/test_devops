@@ -30,11 +30,6 @@ pipeline{
                     releaseRepo: 'test_devops',
                     snapshotRepo: 'test_devops'
                 )
-                rtMavenRun(
-                    pom: 'pom.xml',
-                    goals: 'clean install',
-                    deployerId: 'deployer'
-                    )
                 rtPublishBuildInfo(
                     serverId: 'abhi_Artifactory',
                 )
