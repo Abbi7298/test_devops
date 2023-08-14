@@ -13,7 +13,6 @@ public class First {
 		
 	}
 	// object are the instances or reference of the classes
-	@Test
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
        // all execution come under java control directly come in this block
