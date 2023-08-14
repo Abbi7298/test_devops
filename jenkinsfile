@@ -1,25 +1,25 @@
 pipeline{
     agent any
-    	environment {
-		notifyEmail ="abhishak.khajuria@nagarro.com"
-	}
+      environment {
+    notifyEmail ="abhishak.khajuria@nagarro.com"
+  }
     triggers {
     	cron('0 06 * * *')
   	}
     stages{
-        stage("code checkout"){
+        stage("Code Checkout"){
             steps{
-            bat "echo hello"
-            }
-        }   
-        stage("code build"){
-            steps{
-            bat "mvn clean"
+            bat "echo checkout"
             }
         }
-        stage("unit test"){
+        stage("Code test"){
             steps{
-            bat "mvn test"
+            bat "echo test"
+            }
+        }
+        stage("Code deployed"){
+            steps{
+            bat "echo deployed"
             }
         }
         stage("Publish to Artifactory"){
@@ -36,19 +36,15 @@ pipeline{
                     deployerId: 'deployer'
                     )
                 rtPublishBuildInfo(
-                    serverId:'abhi_Artifactory',
+                    serverId: 'abhi_Artifactory',
                 )
-            }        
-        }
-        stage("Invoke UI Test Pipeline"){
-			steps{
-				build job: 'Dev-Ops-Freestyle-Practice'
-			}
-		}
+            }
+    }
     }
     post{
         success{
             bat "echo success"
             }
+        
         }
 }
