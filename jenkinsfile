@@ -27,8 +27,8 @@ pipeline{
                 rtMavenDeployer(
                     id: 'deployer',
                     serverId: 'abhi_Artifactory',
-                    releaseRepo: 'abhi_Artifactory',
-                    snapshotRepo: 'abhi_Artifactory'
+                    releaseRepo: 'test_devops',
+                    snapshotRepo: 'test_devops'
                 )
                 rtMavenRun(
                     pom: 'pom.xml',
